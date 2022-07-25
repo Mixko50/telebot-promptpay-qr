@@ -13,3 +13,12 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# ideas IDE
+.idea/
+
+# config
+config.yml
+
+# build file
+bin/
