@@ -3,7 +3,6 @@ package main
 import (
 	"MixkoPay/utils/config"
 	"log"
-	"net/http"
 	"strconv"
 	"strings"
 	"time"
@@ -70,13 +69,4 @@ func main() {
 	})
 
 	b.Start()
-
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello World!"))
-	})
-
-	err = http.ListenAndServe(":8080", nil)
-	if err != nil {
-		panic("ListenAndServe: " + err.Error())
-	}
 }
