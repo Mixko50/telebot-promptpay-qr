@@ -2,12 +2,14 @@ package main
 
 import (
 	"MixkoPay/utils/config"
-	pp "github.com/Frontware/promptpay"
-	telegram "gopkg.in/telebot.v3"
 	"log"
+	"net/http"
 	"strconv"
 	"strings"
 	"time"
+
+	pp "github.com/Frontware/promptpay"
+	telegram "gopkg.in/telebot.v3"
 )
 
 func main() {
@@ -68,4 +70,13 @@ func main() {
 	})
 
 	b.Start()
+
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("Hello World!"))
+	})
+
+	err = http.ListenAndServe(":8080", nil)
+	if err != nil {
+		panic("ListenAndServe: " + err.Error())
+	}
 }
