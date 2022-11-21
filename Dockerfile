@@ -12,4 +12,6 @@ COPY . .
 # RUN env GOOS=linux GOARCH=arm64 go build -o bin/mixko-pay main.go
 RUN go build -o ./bin/mixko-pay .
 
+EXPOSE 8080
+
 CMD [ "./bin/mixko-pay" ]
